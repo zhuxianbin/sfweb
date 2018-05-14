@@ -44,14 +44,11 @@
           <div><a href='{url}' target='_blank'>点击查看</a></div>\
         </div>"
       $.getJSON("./db.json", function (data) {
-        console.log(data);
         data = data.map(function (item, index) {
           item.time = formatTime(now);
-          console.log($(temp.format(item)));
-          return $(temp.format(item));
+          return temp.format(item);
         });
-        console.log(data);
-        sfmain.html($(data));
+        sfmain.html(data.join(''));
       });
     });
 
