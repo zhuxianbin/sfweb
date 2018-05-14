@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <div></div>
+    <div></div>
+    <div id='sfmain'>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <script src='http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js'></script>
+  <script>
+    String.prototype.format = function (args) {
+      var result = this;
+      var reg = null;
+      if (arguments.length > 0) {
+        for (var key in args) {
+          if (args[key] !== undefined) {
+            reg = new RegExp("({" + key + "})", "g");
+            result = result.replace(reg, args[key]);
+          }
+        }
+      }
+      return result;
+    }
+    var sfmain = $("#sfmain");
+    var now = new Date();
+    $(function () {
+      var temp =
+        "<div>\
+          <div>{name}</div>\
+          <div>{ip}</div>\
+          <div>{time}</div>\
+          <div>{line}</div>\
+          <div>{desc}</div>\
+          <div>{qq}</div>\
+          <div><a href='{url}' target='_blank'>点击查看</a></div>\
+        </div>"
+      $.get("./db.json").done(function (data) {
+        data = data.map(function (item, index) {
+          item.time = formatTime(now);
+          return temp.format(item);
+        });
+        sfmain.append($(data));
+      })
+    });
+
+    function formatTime(date) {
+      var obj = {
+        M: date.getMonth() - 1,
+        d: date.getDate(),
+        h: date.getHours(),
+        m: date.getMinutes()
+      }
+      return "{M}月/{d}日/{h}点/{m}分开放".format(obj);
+    }
+  </script>
+</body>
+
+</html>
