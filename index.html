@@ -34,26 +34,32 @@
       text-indent: 10px;
     }
 
-    .col-1{
-      width:180px;
+    .col-1 {
+      width: 180px;
     }
-    .col-2{
-      width:140px;
+
+    .col-2 {
+      width: 140px;
     }
-    .col-3{
-      width:180px;
+
+    .col-3 {
+      width: 180px;
     }
-    .col-4{
-      width:160px;
+
+    .col-4 {
+      width: 160px;
     }
-    .col-5{
-      width:270px;
+
+    .col-5 {
+      width: 270px;
     }
-    .col-6{
-      width:160px;
+
+    .col-6 {
+      width: 160px;
     }
-    .col-7{
-      width:100px;
+
+    .col-7 {
+      width: 100px;
     }
 
     .header {
@@ -119,45 +125,45 @@
         </div>"
 
 
-      var data = [{
-        "name": "176精品",
-        "ip": "76精品新开一区",
-        "line": "长期稳定公平",
-        "desc": "独家版本.活动多多.装备保值.区区爆满.",
-        "qq": "精品燃烧起来",
-        "url": "http://kzjp.176de.com:9999/"
-      }, {
-        "name": "176精品",
-        "ip": "76精品新开一区",
-        "line": "长期稳定公平",
-        "desc": "独家版本.活动多多.装备保值.区区爆满.",
-        "qq": "精品燃烧起来",
-        "url": "http://kzjp.176de.com:9999/"
-      }, {
-        "name": "176精品",
-        "ip": "76精品新开一区",
-        "line": "长期稳定公平",
-        "desc": "独家版本.活动多多.装备保值.区区爆满.",
-        "qq": "精品燃烧起来",
-        "url": "http://kzjp.176de.com:9999/"
-      }, {
-        "name": "176精品",
-        "ip": "76精品新开一区",
-        "line": "长期稳定公平",
-        "desc": "独家版本.活动多多.装备保值.区区爆满.",
-        "qq": "精品燃烧起来",
-        "url": "http://kzjp.176de.com:9999/"
-      }];
+      // var data = [{
+      //   "name": "176精品",
+      //   "ip": "76精品新开一区",
+      //   "line": "长期稳定公平",
+      //   "desc": "独家版本.活动多多.装备保值.区区爆满.",
+      //   "qq": "精品燃烧起来",
+      //   "url": "http://kzjp.176de.com:9999/"
+      // }, {
+      //   "name": "176精品",
+      //   "ip": "76精品新开一区",
+      //   "line": "长期稳定公平",
+      //   "desc": "独家版本.活动多多.装备保值.区区爆满.",
+      //   "qq": "精品燃烧起来",
+      //   "url": "http://kzjp.176de.com:9999/"
+      // }, {
+      //   "name": "176精品",
+      //   "ip": "76精品新开一区",
+      //   "line": "长期稳定公平",
+      //   "desc": "独家版本.活动多多.装备保值.区区爆满.",
+      //   "qq": "精品燃烧起来",
+      //   "url": "http://kzjp.176de.com:9999/"
+      // }, {
+      //   "name": "176精品",
+      //   "ip": "76精品新开一区",
+      //   "line": "长期稳定公平",
+      //   "desc": "独家版本.活动多多.装备保值.区区爆满.",
+      //   "qq": "精品燃烧起来",
+      //   "url": "http://kzjp.176de.com:9999/"
+      // }];
 
-      //$.getJSON("./db.json", function (data) {
+      $.getJSON("./db.json", function (data) {
 
-      data = data.map(function (item, index) {
-        item.time = formatTime(now);
-        return temp.format(item);
+        data = data.map(function (item, index) {
+          item.time = formatTime(now);
+          return temp.format(item);
+        });
+        sfmain.html(data.join(''));
       });
-      sfmain.html(data.join(''));
     });
-    //});
 
     function formatTime(date) {
       var obj = {
