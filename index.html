@@ -6,13 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    html,
+    body {
+      font-size: 14px;
+      margin: 0;
+      font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .row {
+      font-size: 0;
+      background: #ffff98;
+    }
+
+    .row:hover{
+      background:#fff;
+    }
+
+    .col {
+      font-size: 14px;
+      line-height: 40px;
+      text-align: left;
+    }
+
+    .header {
+      background: #000;
+      color: #fff;
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .main {
+      background: #fff;
+      width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 
 <body>
-  <div>
-    <div></div>
-    <div></div>
-    <div id='sfmain'>
+  <div class="page">
+    <div class="header"></div>
+    <div class="banner"></div>
+    <div class="main">
+      <div class="row">
+        <div class="col">服务器名</div>
+        <div class="col">服务器IP</div>
+        <div class="col">开机时间</div>
+        <div class="col">线路类别</div>
+        <div class="col">详细版本介绍</div>
+        <div class="col">客服QQ</div>
+        <div class="col">游戏主页</div>
+      </div>
+      <div class="row" id='sfmain'>
+      </div>
     </div>
   </div>
   <script src='http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js'></script>
