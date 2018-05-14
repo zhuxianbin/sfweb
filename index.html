@@ -28,6 +28,32 @@
       font-size: 14px;
       line-height: 40px;
       text-align: left;
+      border: 1px solid #666;
+      margin-bottom: -1px;
+      margin-right: -1px;
+      text-indent: 10px;
+    }
+
+    .col-1{
+      width:180px;
+    }
+    .col-2{
+      width:140px;
+    }
+    .col-3{
+      width:180px;
+    }
+    .col-4{
+      width:160px;
+    }
+    .col-5{
+      width:270px;
+    }
+    .col-6{
+      width:160px;
+    }
+    .col-7{
+      width:100px;
     }
 
     .header {
@@ -51,15 +77,15 @@
     <div class="banner"></div>
     <div class="main">
       <div class="row">
-        <div class="col">服务器名</div>
-        <div class="col">服务器IP</div>
-        <div class="col">开机时间</div>
-        <div class="col">线路类别</div>
-        <div class="col">详细版本介绍</div>
-        <div class="col">客服QQ</div>
-        <div class="col">游戏主页</div>
+        <div class="col col-1">服务器名</div>
+        <div class="col col-2">服务器IP</div>
+        <div class="col col-3">开机时间</div>
+        <div class="col col-4">线路类别</div>
+        <div class="col col-5">详细版本介绍</div>
+        <div class="col col-6">客服QQ</div>
+        <div class="col col-7">游戏主页</div>
       </div>
-      <div class="row" id='sfmain'>
+      <div id='sfmain'>
       </div>
     </div>
   </div>
@@ -82,27 +108,60 @@
     var now = new Date();
     $(function () {
       var temp =
-        "<div>\
-          <div>{name}</div>\
-          <div>{ip}</div>\
-          <div>{time}</div>\
-          <div>{line}</div>\
-          <div>{desc}</div>\
-          <div>{qq}</div>\
-          <div><a href='{url}' target='_blank'>点击查看</a></div>\
+        "<div class='row'>\
+          <div class='col col-1'>{name}</div>\
+          <div class='col col-2'>{ip}</div>\
+          <div class='col col-3'>{time}</div>\
+          <div class='col col-4'>{line}</div>\
+          <div class='col col-5'>{desc}</div>\
+          <div class='col col-6'>{qq}</div>\
+          <div class='col col-7'><a href='{url}' target='_blank'>点击查看</a></div>\
         </div>"
-      $.getJSON("./db.json", function (data) {
-        data = data.map(function (item, index) {
-          item.time = formatTime(now);
-          return temp.format(item);
-        });
-        sfmain.html(data.join(''));
+
+
+      var data = [{
+        "name": "176精品",
+        "ip": "76精品新开一区",
+        "line": "长期稳定公平",
+        "desc": "独家版本.活动多多.装备保值.区区爆满.",
+        "qq": "精品燃烧起来",
+        "url": "http://kzjp.176de.com:9999/"
+      }, {
+        "name": "176精品",
+        "ip": "76精品新开一区",
+        "line": "长期稳定公平",
+        "desc": "独家版本.活动多多.装备保值.区区爆满.",
+        "qq": "精品燃烧起来",
+        "url": "http://kzjp.176de.com:9999/"
+      }, {
+        "name": "176精品",
+        "ip": "76精品新开一区",
+        "line": "长期稳定公平",
+        "desc": "独家版本.活动多多.装备保值.区区爆满.",
+        "qq": "精品燃烧起来",
+        "url": "http://kzjp.176de.com:9999/"
+      }, {
+        "name": "176精品",
+        "ip": "76精品新开一区",
+        "line": "长期稳定公平",
+        "desc": "独家版本.活动多多.装备保值.区区爆满.",
+        "qq": "精品燃烧起来",
+        "url": "http://kzjp.176de.com:9999/"
+      }];
+
+      //$.getJSON("./db.json", function (data) {
+
+      data = data.map(function (item, index) {
+        item.time = formatTime(now);
+        return temp.format(item);
       });
+      sfmain.html(data.join(''));
     });
+    //});
 
     function formatTime(date) {
       var obj = {
-        M: date.getMonth() - 1,
+        M: date.getMonth() + 1,
         d: date.getDate(),
         h: date.getHours(),
         m: date.getMinutes()
