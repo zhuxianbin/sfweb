@@ -52,13 +52,13 @@
           <div>{qq}</div>\
           <div><a href='{url}' target='_blank'>点击查看</a></div>\
         </div>"
-      $.get("./db.json").done(function (data) {
+      $.get("./db.json",function (data) {
         data = data.map(function (item, index) {
           item.time = formatTime(now);
           return $(temp.format(item));
         });
         sfmain.append($(data));
-      })
+      });
     });
 
     function formatTime(date) {
