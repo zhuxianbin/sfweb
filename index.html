@@ -55,7 +55,7 @@
       $.get("./db.json").done(function (data) {
         data = data.map(function (item, index) {
           item.time = formatTime(now);
-          return temp.format(item);
+          return $(temp.format(item));
         });
         sfmain.append($(data));
       })
