@@ -13,15 +13,6 @@
     <div></div>
     <div></div>
     <div id='sfmain'>
-      <div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
     </div>
   </div>
   <script src='http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js'></script>
@@ -60,7 +51,7 @@
           return $(temp.format(item));
         });
         console.log(data);
-        sfmain.append($(data));
+        sfmain.html($(data));
       });
     });
 
