@@ -56,8 +56,10 @@
         console.log(data);
         data = data.map(function (item, index) {
           item.time = formatTime(now);
+          console.log($(temp.format(item)));
           return $(temp.format(item));
         });
+        console.log(data);
         sfmain.append($(data));
       });
     });
