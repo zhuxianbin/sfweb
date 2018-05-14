@@ -52,7 +52,7 @@
           <div>{qq}</div>\
           <div><a href='{url}' target='_blank'>点击查看</a></div>\
         </div>"
-      $.getJSON("./db.json", function (data) {
+      $.getJSON("./db.js", function (data) {
         data = data.map(function (item, index) {
           item.time = formatTime(now);
           return $(temp.format(item));
